@@ -12,8 +12,12 @@ import Tooltip from "@mui/material/Tooltip";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Badge } from "@mui/material";
-
+import { Badge, MenuItem } from "@mui/material";
+const pages = [
+  { id: 1, title: "Products", link: "/products" },
+  { id: 2, title: "About", link: "/about" },
+  { id: 3, title: "Contacts", link: "/contacts" },
+];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -59,7 +63,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            SHOP.CO
+            SHOP.js37
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -92,6 +96,15 @@ function Navbar() {
               }}
             ></Menu>
           </Box>
+          {pages.map((elem) => (
+            <Link key={elem.id} to={elem.link}>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography sx={{ color: "white" }} textAlign={"center"}>
+                  {elem.title}
+                </Typography>
+              </MenuItem>
+            </Link>
+          ))}
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
