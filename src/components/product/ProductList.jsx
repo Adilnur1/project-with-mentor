@@ -11,7 +11,13 @@ const ProductList = () => {
   console.log(products);
   return (
     <div>
-      <Box sx={{ display: "flex", flexWrapp: "wrapp" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrapp: "wrapp",
+        }}
+      >
         {products.map((elem) => (
           <ProductCard elem={elem} key={elem.id} />
         ))}

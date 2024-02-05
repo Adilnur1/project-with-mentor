@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import { ContactPage } from "@mui/icons-material";
 import AddProduct from "../components/product/AddProduct";
 import EditPage from "../pages/EditPage";
+import AddCategoty from "../components/product/AddCategoty";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -21,6 +22,7 @@ const MainRoutes = () => {
     { id: 7, link: "/contacts", element: <ContactPage /> },
     { id: 8, link: "/addProduct", element: <AddProduct /> },
     { id: 9, link: "/edit/:id", element: <EditPage /> },
+    { id: 10, link: "/addCategory", element: <AddCategoty /> },
   ];
   return (
     <div>

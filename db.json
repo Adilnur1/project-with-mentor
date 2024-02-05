@@ -1,20 +1,37 @@
 {
   "products": [
     {
-      "title": "Jaket",
-      "description": "Tech flees",
-      "price": 50,
-      "image": "https://main-cdn.sbermegamarket.ru/big3/hlr-system/126/820/805/111/310/24/100061760383b0.jpg",
+      "title": "Двойка ",
+      "description": "qwwerrtty",
+      "price": 500,
+      "image": "https://i.pinimg.com/236x/30/e3/ff/30e3ffad05d8b6c1bb644cac8fd0f152.jpg",
       "id": 1
     },
     {
-      "title": "Hoodie",
-      "description": "Nike Толстовка",
-      "price": 40,
-      "image": "https://intertop.ua/load/6T712/1600x2133/95.jpg",
-      "id": 2,
-      "async (id, editedProduct) ": "> {\n    await axios__WEBPACK_IMPORTED_MODULE_4__[\"default\"].patch(`${_helpers_const__WEBPACK_IMPORTED_MODULE_1__.API}/${id}`, editProduct);\n    navigate(\"/products\");\n  }"
+      "title": "Jaket",
+      "description": "dsdsfsdfsdf",
+      "category": "",
+      "price": 200,
+      "image": "https://intertop.ua/load/6T1816/1600x2133/MAIN.jpg",
+      "id": 3
     }
   ],
-  "categories": []
+  "categories": [
+    {
+      "name": "Куртка",
+      "id": 1
+    },
+    {
+      "name": "Худи",
+      "id": 2
+    },
+    {
+      "name": "Обувь",
+      "id": 3
+    },
+    {
+      "name": "dfdfh",
+      "id": 4
+    }
+  ]
 }

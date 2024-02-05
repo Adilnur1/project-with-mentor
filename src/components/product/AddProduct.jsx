@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useProducts } from "../context/ProductContextProvider";
 import { Box, Button, TextField, Typography } from "@mui/material";
+import CategoriesSelector from "./CategoriesSelector";
 
 const AddProduct = () => {
-  const { addProduct } = useProducts();
+  const { addProduct, categories, getCategories } = useProducts();
   const [product, setProduct] = useState({
     title: "",
     description: "",
+    category: "",
     price: 0,
     image: "",
   });
@@ -36,6 +38,9 @@ const AddProduct = () => {
       image: "",
     });
   };
+  useEffect(() => {
+    getCategories();
+  }, []);
   return (
     <Box
       sx={{
@@ -57,6 +62,7 @@ const AddProduct = () => {
         variant="outlined"
         onChange={handleInput}
       />
+      <CategoriesSelector categories={categories} handleInput={handleInput} />
       <TextField
         fullWidth
         name="description"

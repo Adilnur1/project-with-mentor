@@ -1,4 +1,4 @@
-import { Box, Modal } from "@mui/material";
+import { Box, Modal, TextField } from "@mui/material";
 import React from "react";
 
 const Detail = (props) => {
@@ -11,6 +11,7 @@ const Detail = (props) => {
     border: "2px solid black",
     boxShadow: 24,
     bgcolor: "background.paper",
+    align: "items",
     p: 4,
   };
   const { elem, open, handleClose } = props;
@@ -31,10 +32,23 @@ const Detail = (props) => {
             onClick={handleClose}
           />
         </div>
-        <div>
+        <div style={{ margin: "30px" }}>
           <h1>{elem.title}</h1>
-          <p>{elem.description}</p>
+          <p style={{ marginTop: "10px" }}>{elem.description}</p>
           <p>{elem.price}$</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dolor
+            quae quaerat in maiores distinctio nam suscipit tempore mollitia?
+            Consequuntur excepturi aliquam quod quia fuga quas eius eum deserunt
+            ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+            dolor quae quaerat in maiores distinctio nam suscipit tempore
+            mollitia? Consequuntur excepturi aliquam quod quia fuga quas eius
+            eum deserunt ex.
+          </p>
+          <TextField
+            style={{ marginTop: "10px" }}
+            label="Можете оставить комментарий"
+          />
         </div>
       </Box>
     </Modal>

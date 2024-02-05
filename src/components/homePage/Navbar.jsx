@@ -17,11 +17,11 @@ const pages = [
   { id: 1, title: "Products", link: "/products" },
   { id: 2, title: "About", link: "/about" },
   { id: 3, title: "Contacts", link: "/contacts" },
+  { id: 4, title: "addCategory", link: "/addCategory" },
 ];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
   const [badgeCount, setBadgeCount] = React.useState(0);
 
   const handleOpenNavMenu = (event) => {

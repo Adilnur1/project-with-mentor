@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
-import { ACTIONS, API } from "../../helpers/const";
+import { ACTIONS, API, API_CATEGORIES } from "../../helpers/const";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 export const productContext = createContext();
@@ -7,6 +7,7 @@ export const useProducts = () => useContext(productContext);
 const INIT_STATE = {
   products: [],
   oneProduct: {},
+  categories: [],
 };
 
 const reduser = (state = INIT_STATE, action) => {
@@ -15,6 +16,8 @@ const reduser = (state = INIT_STATE, action) => {
       return { ...state, products: action.payload };
     case ACTIONS.GET_ONE_PRODUCT:
       return { ...state, oneProduct: action.payload };
+    case ACTIONS.GET_CATEGORIES:
+      return { ...state, categories: action.payload };
     default:
       return state;
   }
@@ -55,14 +58,30 @@ const ProductContextProvider = ({ children }) => {
     await axios.patch(`${API}/${id}`, editedProduct);
     navigate("/products");
   };
+  // ! GET_CATIGORIES
+  const getCategories = async () => {
+    const { data } = await axios(API_CATEGORIES);
+    dispatch({
+      type: ACTIONS.GET_CATEGORIES,
+      payload: data,
+    });
+  };
+  // ! CREATE_CATEGORY
+  const createCategory = async (newCategory) => {
+    await axios.post(API_CATEGORIES, newCategory);
+    getCategories();
+  };
   const values = {
     products: state.products,
     oneProduct: state.oneProduct,
+    categories: state.categories,
     addProduct,
     getProducts,
     deleteProduct,
     getOneProduct,
     editProduct,
+    getCategories,
+    createCategory,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
